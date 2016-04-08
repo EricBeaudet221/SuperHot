@@ -9,6 +9,6 @@ package superhot;
  *
  * @author Oliver
  */
-public class LevelManager {
-
+public enum GameState {
+    
 }

@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package superhot;
+package spaceinvaders;
+
+import java.awt.Point;
 
 /**
  *
  * @author Oliver
  */
-public class LevelManager {
-
+public interface MoveValidatorIntf {
+    public Point validateMove(Point proposedLocation);
+    
 }

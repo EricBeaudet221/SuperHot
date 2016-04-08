@@ -66,8 +66,6 @@ public class SHworld extends Environment {
                 barriers.get(i).draw(graphics);
             }
         }
+        
     }
-
-
-
 }
