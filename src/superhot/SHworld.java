@@ -6,6 +6,7 @@
 package superhot;
 
 import environment.Environment;
+import images.ResourceTools;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -15,6 +16,11 @@ import java.awt.event.MouseEvent;
  * @author ericbeaudet
  */
 public class SHworld extends Environment{
+    
+    
+    public SHworld() {
+        this.setBackground(ResourceTools.loadImageFromResource("SuperHot/level_1.png"));
+    }
 
     @Override
     public void initializeEnvironment() {
