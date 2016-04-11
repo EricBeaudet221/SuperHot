@@ -8,6 +8,7 @@ package superhot;
 import images.ImageManager;
 import images.ResourceTools;
 import java.awt.Color;
+import java.awt.Image;
 import java.util.ArrayList;
 
 /**
@@ -16,55 +17,157 @@ import java.util.ArrayList;
  */
 public class LevelManager extends ImageManager {
 
+//<editor-fold defaultstate="collapsed" desc="constructors">
     public LevelManager() {
-        LEVEL_1_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_1_IMAGE_NAMES.add(LEVEL_1);
-        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
-        LEVEL_2_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_2_IMAGE_NAMES.add(LEVEL_2);
-        LEVEL_3_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_3_IMAGE_NAMES.add(LEVEL_3);
-        LEVEL_4_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_4_IMAGE_NAMES.add(LEVEL_4);
-        LEVEL_5_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_5_IMAGE_NAMES.add(LEVEL_5);
-        LEVEL_6_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_6_IMAGE_NAMES.add(LEVEL_6);
-        LEVEL_7_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_7_IMAGE_NAMES.add(LEVEL_7);
-        LEVEL_8_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_8_IMAGE_NAMES.add(LEVEL_8);
-        LEVEL_9_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_9_IMAGE_NAMES.add(LEVEL_9);
-        LEVEL_10_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_10_IMAGE_NAMES.add(LEVEL_10);
-        LEVEL_11_IMAGE_NAMES = new ArrayList<>();
-        LEVEL_11_IMAGE_NAMES.add(LEVEL_11);
+//        LEVEL_1_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_1_IMAGE_NAMES.add(LEVEL_1);
+//        
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
+//        LEVEL_2_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_2_IMAGE_NAMES.add(LEVEL_2);
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
+//        LEVEL_3_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_3_IMAGE_NAMES.add(LEVEL_3);
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
+//        LEVEL_4_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_4_IMAGE_NAMES.add(LEVEL_4);
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
+//        LEVEL_5_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_5_IMAGE_NAMES.add(LEVEL_5);
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
+//        LEVEL_6_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_6_IMAGE_NAMES.add(LEVEL_6);
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
+//        LEVEL_7_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_7_IMAGE_NAMES.add(LEVEL_7);
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
+//        LEVEL_8_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_8_IMAGE_NAMES.add(LEVEL_8);
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
+//        LEVEL_9_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_9_IMAGE_NAMES.add(LEVEL_9);
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
+//        LEVEL_10_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_10_IMAGE_NAMES.add(LEVEL_10);
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
+//        LEVEL_11_IMAGE_NAMES = new ArrayList<>();
+//        LEVEL_11_IMAGE_NAMES.add(LEVEL_11);
+//        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
 
-        this.addImage(LEVEL_1, ResourceTools.loadImageFromResource("superhot/level_1.png"));
-        this.addImage(LEVEL_2, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
-        this.addImage(LEVEL_3, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
-        this.addImage(LEVEL_4, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
-        this.addImage(LEVEL_5, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
-        this.addImage(LEVEL_6, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
-        this.addImage(LEVEL_7, ResourceTools.loadImageFromResource("superhot/level_2"));
-        this.addImage(LEVEL_8, ResourceTools.loadImageFromResource("superhot/level_3"));
-        this.addImage(LEVEL_9, ResourceTools.loadImageFromResource("superhot/level_4"));
-        this.addImage(LEVEL_10, ResourceTools.loadImageFromResource("superhot/boss_level.png"));
-        this.addImage(LEVEL_11, ResourceTools.loadImageFromResource("superhot/endless_level.png"));
+        this.addImage(IMG_LEVEL_1, ResourceTools.loadImageFromResource("superhot/level_1.png"));
+        this.addImage(IMG_LEVEL_2, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
+        this.addImage(IMG_LEVEL_3, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
+        this.addImage(IMG_LEVEL_4, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
+        this.addImage(IMG_LEVEL_5, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
+        this.addImage(IMG_LEVEL_6, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
+        this.addImage(IMG_LEVEL_7, ResourceTools.loadImageFromResource("superhot/level_2"));
+        this.addImage(IMG_LEVEL_8, ResourceTools.loadImageFromResource("superhot/level_3"));
+        this.addImage(IMG_LEVEL_9, ResourceTools.loadImageFromResource("superhot/level_4"));
+        this.addImage(IMG_LEVEL_10, ResourceTools.loadImageFromResource("superhot/boss_level.png"));
+        this.addImage(IMG_LEVEL_11, ResourceTools.loadImageFromResource("superhot/endless_level.png"));
+    }
+//</editor-fold>
+
+    public ArrayList<Barrier> getBarriers(Level level) {
+        ArrayList<Barrier> barriers = new ArrayList<>();
+        switch (level) {
+            default:
+            case LEVEL_1:
+                barriers = createBarrierRange(14, 55, 38, 1000, new Color(154, 205, 50), true, barriers);
+                return barriers;
+                
+            case LEVEL_2:
+                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                return barriers;
+                
+            case LEVEL_3:
+                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                return barriers;
+                
+             case LEVEL_4:
+                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                return barriers;               
+                
+            case LEVEL_5:
+                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                return barriers;                
+                
+            case LEVEL_6:
+                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                return barriers;  
+                
+            case LEVEL_7:
+                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                return barriers;                
+                
+            case LEVEL_8:
+                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                return barriers;                
+                
+            case LEVEL_9:
+                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                return barriers;
+
+            case LEVEL_10:
+                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                return barriers; 
+                
+            case LEVEL_11:
+                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                return barriers;
+        }
     }
 
-    public static final String LEVEL_1 = "LEVEL_1";
-    public static final String LEVEL_2 = "LEVEL_2";
-    public static final String LEVEL_3 = "LEVEL_3";
-    public static final String LEVEL_4 = "LEVEL_4";
-    public static final String LEVEL_5 = "LEVEL_5";
-    public static final String LEVEL_6 = "LEVEL_6";
-    public static final String LEVEL_7 = "LEVEL_7";
-    public static final String LEVEL_8 = "LEVEL_8";
-    public static final String LEVEL_9 = "LEVEL_9";
-    public static final String LEVEL_10 = "LEVEL_10";
-    public static final String LEVEL_11 = "LEVEL_11";
+    public Image getBackground(Level level) {
+        switch (level) {
+            default:
+            case LEVEL_1:
+                return this.getImage(IMG_LEVEL_1);
+
+            case LEVEL_2:
+                return this.getImage(IMG_LEVEL_2);
+
+            case LEVEL_3:
+                return this.getImage(IMG_LEVEL_3);
+
+            case LEVEL_4:
+                return this.getImage(IMG_LEVEL_4);
+
+            case LEVEL_5:
+                return this.getImage(IMG_LEVEL_5);
+
+            case LEVEL_6:
+                return this.getImage(IMG_LEVEL_6);
+
+            case LEVEL_7:
+                return this.getImage(IMG_LEVEL_7);
+
+            case LEVEL_8:
+                return this.getImage(IMG_LEVEL_8);
+
+            case LEVEL_9:
+                return this.getImage(IMG_LEVEL_9);
+
+            case LEVEL_10:
+                return this.getImage(IMG_LEVEL_10);
+
+            case LEVEL_11:
+                return this.getImage(IMG_LEVEL_11);
+
+        }
+    }
+
+    public static final String IMG_LEVEL_1 = "IMG_LEVEL_1";
+    public static final String IMG_LEVEL_2 = "IMG_LEVEL_2";
+    public static final String IMG_LEVEL_3 = "IMG_LEVEL_3";
+    public static final String IMG_LEVEL_4 = "IMG_LEVEL_4";
+    public static final String IMG_LEVEL_5 = "IMG_LEVEL_5";
+    public static final String IMG_LEVEL_6 = "IMG_LEVEL_6";
+    public static final String IMG_LEVEL_7 = "IMG_LEVEL_7";
+    public static final String IMG_LEVEL_8 = "IMG_LEVEL_8";
+    public static final String IMG_LEVEL_9 = "IMG_LEVEL_9";
+    public static final String IMG_LEVEL_10 = "IMG_LEVEL_10";
+    public static final String IMG_LEVEL_11 = "IMG_LEVEL_11";
 
     public static ArrayList<String> LEVEL_1_IMAGE_NAMES;
     public static ArrayList<String> LEVEL_2_IMAGE_NAMES;
@@ -78,13 +181,14 @@ public class LevelManager extends ImageManager {
     public static ArrayList<String> LEVEL_10_IMAGE_NAMES;
     public static ArrayList<String> LEVEL_11_IMAGE_NAMES;
 
-    private ArrayList<Barrier> barriers;
+//    private ArrayList<Barrier> barriers;
 
-    public void createBarrierRange(int startX, int startY, int endX, int endY, Color color, boolean breakable) {
+    public ArrayList<Barrier> createBarrierRange(int startX, int startY, int endX, int endY, Color color, boolean breakable, ArrayList<Barrier> barriers) {
         for (int x = startX; x <= endX; x++) {
             for (int y = startY; y <= endY; y++) {
                 barriers.add(new Barrier(x, y, 10, 10, color, breakable));
             }
         }
+        return barriers;
     }
 }
