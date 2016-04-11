@@ -101,11 +101,11 @@ public class LevelManager extends ImageManager {
                 return barriers;                
                 
             case LEVEL_8:
-                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(2000, 200, 38, 3, new Color(154, 205, 50), true, barriers);
                 return barriers;                
                 
             case LEVEL_9:
-                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(150, 200, 38, 3, new Color(154, 205, 50), true, barriers);
                 return barriers;
 
             case LEVEL_10:
@@ -113,7 +113,7 @@ public class LevelManager extends ImageManager {
                 return barriers; 
                 
             case LEVEL_11:
-                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(200, 200, 38, 3, new Color(154, 205, 50), true, barriers);
                 return barriers;
         }
     }
