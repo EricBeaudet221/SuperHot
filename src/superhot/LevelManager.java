@@ -19,9 +19,10 @@ public class LevelManager extends ImageManager {
 
 //<editor-fold defaultstate="collapsed" desc="constructors">
     public LevelManager() {
+//<editor-fold defaultstate="collapsed" desc="old stuff">
 //        LEVEL_1_IMAGE_NAMES = new ArrayList<>();
 //        LEVEL_1_IMAGE_NAMES.add(LEVEL_1);
-//        
+//
 //        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
 //        LEVEL_2_IMAGE_NAMES = new ArrayList<>();
 //        LEVEL_2_IMAGE_NAMES.add(LEVEL_2);
@@ -53,16 +54,16 @@ public class LevelManager extends ImageManager {
 //        LEVEL_11_IMAGE_NAMES = new ArrayList<>();
 //        LEVEL_11_IMAGE_NAMES.add(LEVEL_11);
 //        createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
-
+//</editor-fold>
         this.addImage(IMG_LEVEL_1, ResourceTools.loadImageFromResource("superhot/level_1.png"));
         this.addImage(IMG_LEVEL_2, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
         this.addImage(IMG_LEVEL_3, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
         this.addImage(IMG_LEVEL_4, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
         this.addImage(IMG_LEVEL_5, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
         this.addImage(IMG_LEVEL_6, ResourceTools.loadImageFromResource("superhot/tutorial_level_1.png"));
-        this.addImage(IMG_LEVEL_7, ResourceTools.loadImageFromResource("superhot/level_2"));
-        this.addImage(IMG_LEVEL_8, ResourceTools.loadImageFromResource("superhot/level_3"));
-        this.addImage(IMG_LEVEL_9, ResourceTools.loadImageFromResource("superhot/level_4"));
+        this.addImage(IMG_LEVEL_7, ResourceTools.loadImageFromResource("superhot/level_2.png"));
+        this.addImage(IMG_LEVEL_8, ResourceTools.loadImageFromResource("superhot/level_3.png"));
+        this.addImage(IMG_LEVEL_9, ResourceTools.loadImageFromResource("superhot/level_4.png"));
         this.addImage(IMG_LEVEL_10, ResourceTools.loadImageFromResource("superhot/boss_level.png"));
         this.addImage(IMG_LEVEL_11, ResourceTools.loadImageFromResource("superhot/endless_level.png"));
     }
@@ -73,19 +74,19 @@ public class LevelManager extends ImageManager {
         switch (level) {
             default:
             case LEVEL_1:
-                barriers = createBarrierRange(14, 55, 38, 1000, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(123, 55, 38, 1000, new Color(154, 205, 50), true, barriers);
                 return barriers;
                 
             case LEVEL_2:
-                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(14, 200, 223, 3, new Color(154, 205, 50), true, barriers);
                 return barriers;
                 
             case LEVEL_3:
-                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(14, 200, 784, 3, new Color(154, 205, 50), true, barriers);
                 return barriers;
                 
              case LEVEL_4:
-                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(14, 200, 300, 3, new Color(154, 205, 50), true, barriers);
                 return barriers;               
                 
             case LEVEL_5:
@@ -93,7 +94,7 @@ public class LevelManager extends ImageManager {
                 return barriers;                
                 
             case LEVEL_6:
-                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(14, 200, 38, 123, new Color(154, 205, 50), true, barriers);
                 return barriers;  
                 
             case LEVEL_7:
@@ -101,19 +102,19 @@ public class LevelManager extends ImageManager {
                 return barriers;                
                 
             case LEVEL_8:
-                barriers = createBarrierRange(2000, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(2000, 200, 9, 3, new Color(154, 205, 50), true, barriers);
                 return barriers;                
                 
             case LEVEL_9:
-                barriers = createBarrierRange(150, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(150, 200, 12, 3, new Color(154, 205, 50), true, barriers);
                 return barriers;
 
             case LEVEL_10:
-                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(14, 200, 200, 3, new Color(154, 205, 50), true, barriers);
                 return barriers; 
                 
             case LEVEL_11:
-                barriers = createBarrierRange(200, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(200, 200, 38, 456, new Color(154, 205, 50), true, barriers);
                 return barriers;
         }
     }
@@ -191,4 +192,5 @@ public class LevelManager extends ImageManager {
         }
         return barriers;
     }
+
 }

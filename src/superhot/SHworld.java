@@ -12,7 +12,6 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
 /**
  *
  * @author ericbeaudet
@@ -21,34 +20,50 @@ public class SHworld extends Environment {
 
     Grid grid;
     private ArrayList<Barrier> barriers;
+    LevelManager levelManager;
+    private Level currentLevel;
 
     public SHworld() {
-//        barriers = new ArrayList<>();
-//             createBarrierRange(0, 13, 38, 1000, new Color(154, 205, 50), true);
-//           createBarrierRange(-1, -1, -1, 22, new Color(153, 0, 76, 255), true);
-//            createBarrierRange(-1, -1, 39, -1, new Color(0, 0, 128, 255), true);
-//            createBarrierRange(-1, 22, 39, 22, new Color(0, 0, 128, 255), true);
-//        createBarrierRange(39, 0, 1000, 1000, new Color(153, 76, 0, 255), true);
+       levelManager = new LevelManager();
     }
 
     public void createBarrierRange(int startX, int startY, int endX, int endY, Color color, boolean breakable) {
         for (int x = startX; x <= endX; x++) {
             for (int y = startY; y <= endY; y++) {
-                barriers.add(new Barrier(x, y, 10, 10, color, breakable));
             }
         }
     }
 
+    
     @Override
-    public void initializeEnvironment() {
+    public void initializeEnvironment() {    
     }
 
+    
     @Override
-    public void timerTaskHandler() {
+    public void timerTaskHandler() {         
+//        this.setBackground(this.levelManager.getBackground(Level.LEVEL_1));
     }
 
     @Override
     public void keyPressedHandler(KeyEvent e) {
+        if (e.getKeyCode()== KeyEvent.VK_1) {
+            setCurrentLevel(Level.LEVEL_1);
+        }else if (e.getKeyCode()== KeyEvent.VK_2) {
+            setCurrentLevel(Level.LEVEL_2);
+        }else if (e.getKeyCode()== KeyEvent.VK_3) {
+            setCurrentLevel(Level.LEVEL_3);
+        }else if (e.getKeyCode()== KeyEvent.VK_4) {
+            setCurrentLevel(Level.LEVEL_4);
+        }else if (e.getKeyCode()== KeyEvent.VK_5) {
+            setCurrentLevel(Level.LEVEL_5);
+        }else if (e.getKeyCode()== KeyEvent.VK_6) {
+            setCurrentLevel(Level.LEVEL_6);
+        }else if (e.getKeyCode()== KeyEvent.VK_7) {
+            setCurrentLevel(Level.LEVEL_7);
+        }else if (e.getKeyCode()== KeyEvent.VK_8) {
+            setCurrentLevel(Level.LEVEL_8);
+        }
     }
 
     @Override
@@ -64,8 +79,32 @@ public class SHworld extends Environment {
         if (barriers != null) {
             for (int i = 0; i < barriers.size(); i++) {
                 barriers.get(i).draw(graphics);
+                
             }
         }
         
+    }
+
+    /**
+     * @return the currentLevel
+     */
+    public Level getCurrentLevel() {
+        return currentLevel;
+    }
+
+    /**
+     * @param currentLevel the currentLevel to set
+     */
+    public void setCurrentLevel(Level currentLevel) {
+        this.currentLevel = currentLevel;
+        
+        //layout game
+        
+        //change background
+        this.setBackground(levelManager.getBackground(currentLevel));
+        
+        //clear and reset barriers
+//        barriers.clear();
+        levelManager.getBarriers(currentLevel);
     }
 }
