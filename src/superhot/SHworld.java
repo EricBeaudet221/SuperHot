@@ -19,7 +19,6 @@ public class SHworld extends Environment{
     
     
     public SHworld() {
-        this.setBackground(ResourceTools.loadImageFromResource("SuperHot/level_1.png"));
     }
 
     @Override
