@@ -12,6 +12,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+
 /**
  *
  * @author ericbeaudet
@@ -24,7 +25,11 @@ public class SHworld extends Environment {
     private Level currentLevel;
 
     public SHworld() {
-       levelManager = new LevelManager();
+        this.setBackground(Color.BLACK);
+
+        barriers = new ArrayList<>();
+        levelManager = new LevelManager();
+
     }
 
     public void createBarrierRange(int startX, int startY, int endX, int endY, Color color, boolean breakable) {
@@ -34,35 +39,71 @@ public class SHworld extends Environment {
         }
     }
 
-    
     @Override
-    public void initializeEnvironment() {    
+    public void initializeEnvironment() {
     }
 
-    
     @Override
-    public void timerTaskHandler() {         
+    public void timerTaskHandler() {
 //        this.setBackground(this.levelManager.getBackground(Level.LEVEL_1));
     }
 
     @Override
     public void keyPressedHandler(KeyEvent e) {
-        if (e.getKeyCode()== KeyEvent.VK_1) {
+        if (e.getKeyCode() == KeyEvent.VK_1) {
             setCurrentLevel(Level.LEVEL_1);
-        }else if (e.getKeyCode()== KeyEvent.VK_2) {
+        } else if (e.getKeyCode() == KeyEvent.VK_2) {
             setCurrentLevel(Level.LEVEL_2);
-        }else if (e.getKeyCode()== KeyEvent.VK_3) {
+        } else if (e.getKeyCode() == KeyEvent.VK_3) {
             setCurrentLevel(Level.LEVEL_3);
-        }else if (e.getKeyCode()== KeyEvent.VK_4) {
+        } else if (e.getKeyCode() == KeyEvent.VK_4) {
             setCurrentLevel(Level.LEVEL_4);
-        }else if (e.getKeyCode()== KeyEvent.VK_5) {
+        } else if (e.getKeyCode() == KeyEvent.VK_5) {
             setCurrentLevel(Level.LEVEL_5);
-        }else if (e.getKeyCode()== KeyEvent.VK_6) {
+        } else if (e.getKeyCode() == KeyEvent.VK_6) {
             setCurrentLevel(Level.LEVEL_6);
-        }else if (e.getKeyCode()== KeyEvent.VK_7) {
+        } else if (e.getKeyCode() == KeyEvent.VK_7) {
             setCurrentLevel(Level.LEVEL_7);
-        }else if (e.getKeyCode()== KeyEvent.VK_8) {
+        } else if (e.getKeyCode() == KeyEvent.VK_8) {
             setCurrentLevel(Level.LEVEL_8);
+        } else if (e.getKeyCode() == KeyEvent.VK_9) {
+            setCurrentLevel(Level.LEVEL_9);
+        } else if (e.getKeyCode() == KeyEvent.VK_0) {
+            setCurrentLevel(Level.LEVEL_10);
+        } else if (e.getKeyCode() == KeyEvent.VK_P) {
+            setCurrentLevel(Level.LEVEL_11);
+        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+            updateYPosition(-15);
+        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            updateYPosition(15);
+        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            updateXPosition(15);
+        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            updateXPosition(-15);
+        }
+    }
+
+    private static final int MAX_X = 25;
+    private static final int MIN_X = 50;
+
+    private void updateXPosition(int deltaX) {
+        if (getBackgroundImagePosition().x + deltaX < MAX_X) {
+            this.getBackgroundImagePosition().x += deltaX;
+            for (Barrier barrier : barriers) {
+                barrier.addX(deltaX);
+            }
+        }
+    }
+
+    private static final int MAX_Y = 25;
+    private static final int MIN_Y = 50;
+
+    private void updateYPosition(int deltaY) {
+        if (getBackgroundImagePosition().y + deltaY < MAX_Y) {
+            this.getBackgroundImagePosition().y += deltaY;
+            for (Barrier barrier : barriers) {
+                barrier.addY(deltaY);
+            }
         }
     }
 
@@ -72,17 +113,17 @@ public class SHworld extends Environment {
 
     @Override
     public void environmentMouseClicked(MouseEvent e) {
+
     }
 
     @Override
     public void paintEnvironment(Graphics graphics) {
         if (barriers != null) {
-            for (int i = 0; i < barriers.size(); i++) {
-                barriers.get(i).draw(graphics);
-                
+            for (Barrier barrier : barriers) {
+//                System.out.println("painting");
+                barrier.draw(graphics);
             }
         }
-        
     }
 
     /**
@@ -97,14 +138,15 @@ public class SHworld extends Environment {
      */
     public void setCurrentLevel(Level currentLevel) {
         this.currentLevel = currentLevel;
-        
+
         //layout game
-        
         //change background
-        this.setBackground(levelManager.getBackground(currentLevel));
-        
         //clear and reset barriers
-//        barriers.clear();
-        levelManager.getBarriers(currentLevel);
+        if (barriers != null) {
+            barriers.clear();
+            barriers.addAll(levelManager.getBarriers(currentLevel));
+        }
+//        levelManager.createBarrierRange(20, 20, 30, 90, Color.yellow, true, barriers);
+        this.setBackground(levelManager.getBackground(currentLevel));
     }
 }

@@ -74,7 +74,7 @@ public class LevelManager extends ImageManager {
         switch (level) {
             default:
             case LEVEL_1:
-                barriers = createBarrierRange(123, 55, 38, 1000, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(38, 55, 123, 100, new Color(154, 205, 50), true, barriers);
                 return barriers;
                 
             case LEVEL_2:
@@ -158,6 +158,7 @@ public class LevelManager extends ImageManager {
         }
     }
 
+//<editor-fold defaultstate="collapsed" desc="image names">
     public static final String IMG_LEVEL_1 = "IMG_LEVEL_1";
     public static final String IMG_LEVEL_2 = "IMG_LEVEL_2";
     public static final String IMG_LEVEL_3 = "IMG_LEVEL_3";
@@ -169,7 +170,7 @@ public class LevelManager extends ImageManager {
     public static final String IMG_LEVEL_9 = "IMG_LEVEL_9";
     public static final String IMG_LEVEL_10 = "IMG_LEVEL_10";
     public static final String IMG_LEVEL_11 = "IMG_LEVEL_11";
-
+    
     public static ArrayList<String> LEVEL_1_IMAGE_NAMES;
     public static ArrayList<String> LEVEL_2_IMAGE_NAMES;
     public static ArrayList<String> LEVEL_3_IMAGE_NAMES;
@@ -181,16 +182,16 @@ public class LevelManager extends ImageManager {
     public static ArrayList<String> LEVEL_9_IMAGE_NAMES;
     public static ArrayList<String> LEVEL_10_IMAGE_NAMES;
     public static ArrayList<String> LEVEL_11_IMAGE_NAMES;
+//</editor-fold>
 
 //    private ArrayList<Barrier> barriers;
 
     public ArrayList<Barrier> createBarrierRange(int startX, int startY, int endX, int endY, Color color, boolean breakable, ArrayList<Barrier> barriers) {
         for (int x = startX; x <= endX; x++) {
             for (int y = startY; y <= endY; y++) {
-                barriers.add(new Barrier(x, y, 10, 10, color, breakable));
+                barriers.add(new Barrier(x, y, x, y, color, breakable));
             }
         }
         return barriers;
     }
-
 }
