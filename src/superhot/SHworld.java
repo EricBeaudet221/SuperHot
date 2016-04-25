@@ -5,9 +5,11 @@
  */
 package superhot;
 
+import environment.Direction;
 import environment.Environment;
 import images.ResourceTools;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
@@ -17,8 +19,12 @@ import java.awt.event.MouseEvent;
  */
 public class SHworld extends Environment{
     
+    Blue blue;
     
     public SHworld() {
+        
+        Image sprite_1 = ResourceTools.loadImageFromResource("superhot/sprite_1.png");
+        blue = new Blue(50, 50, 4, Direction.LEFT);
     }
 
     @Override
@@ -31,6 +37,12 @@ public class SHworld extends Environment{
 
     @Override
     public void keyPressedHandler(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_W) {
+            blue.setDirection(Direction.UP);
+            blue.move();
+            System.out.println("moving");
+        }
+        
     }
 
     @Override
@@ -43,6 +55,10 @@ public class SHworld extends Environment{
 
     @Override
     public void paintEnvironment(Graphics graphics) {
+        
+        if (blue != null) {
+            blue.draw(graphics);
+        }
     }
     
 }
