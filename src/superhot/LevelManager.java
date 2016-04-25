@@ -78,19 +78,19 @@ public class LevelManager extends ImageManager {
                 return barriers;
                 
             case LEVEL_2:
-                barriers = createBarrierRange(14, 200, 223, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(38, 55, 1000, 100, new Color(154, 205, 50), true, barriers);
                 return barriers;
                 
             case LEVEL_3:
-                barriers = createBarrierRange(14, 200, 784, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(47, 200, 784, 200, new Color(154, 205, 50), true, barriers);
                 return barriers;
                 
              case LEVEL_4:
-                barriers = createBarrierRange(14, 200, 300, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(14, 200, 300, 275, new Color(154, 205, 50), true, barriers);
                 return barriers;               
                 
             case LEVEL_5:
-                barriers = createBarrierRange(14, 200, 38, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(14, 200, 38, 200, new Color(154, 205, 50), true, barriers);
                 return barriers;                
                 
             case LEVEL_6:
@@ -102,19 +102,19 @@ public class LevelManager extends ImageManager {
                 return barriers;                
                 
             case LEVEL_8:
-                barriers = createBarrierRange(2000, 200, 9, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(20, 200, 90, 300, new Color(154, 205, 50), true, barriers);
                 return barriers;                
                 
             case LEVEL_9:
-                barriers = createBarrierRange(150, 200, 12, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(150, 200, 300, 350, new Color(154, 205, 50), true, barriers);
                 return barriers;
 
             case LEVEL_10:
-                barriers = createBarrierRange(14, 200, 200, 3, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(14, 200, 250, 400, new Color(154, 205, 50), true, barriers);
                 return barriers; 
                 
             case LEVEL_11:
-                barriers = createBarrierRange(200, 200, 38, 456, new Color(154, 205, 50), true, barriers);
+                barriers = createBarrierRange(200, 200, 250, 400, new Color(154, 205, 50), true, barriers);
                 return barriers;
         }
     }

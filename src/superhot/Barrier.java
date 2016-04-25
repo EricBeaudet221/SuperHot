@@ -81,7 +81,7 @@ public class Barrier {
     }
 
     public void addY(int deltaY) {
-        this.y = deltaY;
+        this.y += deltaY;
     }
 
     /**

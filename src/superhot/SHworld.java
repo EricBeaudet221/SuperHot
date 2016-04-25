@@ -73,9 +73,9 @@ public class SHworld extends Environment {
         } else if (e.getKeyCode() == KeyEvent.VK_P) {
             setCurrentLevel(Level.LEVEL_11);
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
-            updateYPosition(-15);
-        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             updateYPosition(15);
+        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            updateYPosition(-15);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             updateXPosition(15);
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -87,7 +87,12 @@ public class SHworld extends Environment {
     private static final int MIN_X = 50;
 
     private void updateXPosition(int deltaX) {
-        if (getBackgroundImagePosition().x + deltaX < MAX_X) {
+        if ((deltaX > 0) && (getBackgroundImagePosition().x + deltaX < MAX_X)) {
+            this.getBackgroundImagePosition().x += deltaX;
+            for (Barrier barrier : barriers) {
+                barrier.addX(deltaX);
+            }
+        } else if ((deltaX > 0) && (getBackgroundImagePosition().x + deltaX < MIN_X)) {
             this.getBackgroundImagePosition().x += deltaX;
             for (Barrier barrier : barriers) {
                 barrier.addX(deltaX);
@@ -96,7 +101,7 @@ public class SHworld extends Environment {
     }
 
     private static final int MAX_Y = 25;
-    private static final int MIN_Y = 50;
+    private static final int MIN_Y = 60;
 
     private void updateYPosition(int deltaY) {
         if (getBackgroundImagePosition().y + deltaY < MAX_Y) {
