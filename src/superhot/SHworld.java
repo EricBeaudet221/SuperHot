@@ -5,10 +5,13 @@
  */
 package superhot;
 
+import environment.Direction;
 import environment.Environment;
 import grid.Grid;
 import java.awt.Color;
+import images.ResourceTools;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -23,6 +26,7 @@ public class SHworld extends Environment {
     private ArrayList<Barrier> barriers;
     LevelManager levelManager;
     private Level currentLevel;
+    Blue blue;
 
     public SHworld() {
         this.setBackground(Color.BLACK);
@@ -30,6 +34,8 @@ public class SHworld extends Environment {
         barriers = new ArrayList<>();
         levelManager = new LevelManager();
 
+        Image sprite_1 = ResourceTools.loadImageFromResource("superhot/sprite_1.png");
+        blue = new Blue(50, 50, 4, Direction.LEFT);
     }
 
     public void createBarrierRange(int startX, int startY, int endX, int endY, Color color, boolean breakable) {
@@ -81,6 +87,12 @@ public class SHworld extends Environment {
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             updateXPosition(-15);
         }
+        
+//        if (e.getKeyCode() == KeyEvent.VK_W) {
+//            blue.setDirection(Direction.UP);
+//            blue.move();
+//            System.out.println("moving");
+//        }
     }
 
     private static final int MAX_X = 25;
@@ -125,9 +137,12 @@ public class SHworld extends Environment {
     public void paintEnvironment(Graphics graphics) {
         if (barriers != null) {
             for (Barrier barrier : barriers) {
-//                System.out.println("painting");
                 barrier.draw(graphics);
             }
+        }
+
+        if (blue != null) {
+            blue.draw(graphics);
         }
     }
 
