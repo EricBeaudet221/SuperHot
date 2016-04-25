@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spaceinvaders;
+package superhot;
 
 import java.awt.Point;
 
@@ -12,6 +12,5 @@ import java.awt.Point;
  * @author Oliver
  */
 public interface MoveValidatorIntf {
-    public Point validateMove(Point proposedLocation);
-    
+    public Point validateMove(Point proposedLocation);   
 }
