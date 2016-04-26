@@ -95,8 +95,8 @@ public class SHworld extends Environment {
 //        }
     }
 
-    private static final int MAX_X = 25;
-    private static final int MIN_X = 50;
+    private static final int MAX_X = 50;
+    private static final int MIN_X = -1300;
 
     private void updateXPosition(int deltaX) {
         if ((deltaX > 0) && (getBackgroundImagePosition().x + deltaX < MAX_X)) {
@@ -104,7 +104,8 @@ public class SHworld extends Environment {
             for (Barrier barrier : barriers) {
                 barrier.addX(deltaX);
             }
-        } else if ((deltaX > 0) && (getBackgroundImagePosition().x + deltaX < MIN_X)) {
+            //deltaX is smaller than 0 and position of the background image and deltaX is smaller than the minimum X
+        } else if ((deltaX < 0) && (getBackgroundImagePosition().x + deltaX > MIN_X)) {
             this.getBackgroundImagePosition().x += deltaX;
             for (Barrier barrier : barriers) {
                 barrier.addX(deltaX);
@@ -112,11 +113,17 @@ public class SHworld extends Environment {
         }
     }
 
-    private static final int MAX_Y = 25;
-    private static final int MIN_Y = 60;
+    private static final int MAX_Y = 60;
+    private static final int MIN_Y = -610;
 
     private void updateYPosition(int deltaY) {
-        if (getBackgroundImagePosition().y + deltaY < MAX_Y) {
+        if ((deltaY > 0) && (getBackgroundImagePosition().y + deltaY < MAX_Y)) {
+            this.getBackgroundImagePosition().y += deltaY;
+            for (Barrier barrier : barriers) {
+                barrier.addY(deltaY);
+            }
+            //deltaX is smaller than 0 and position of the background image and deltaX is smaller than the minimum X
+        } else if ((deltaY < 0) && (getBackgroundImagePosition().y + deltaY > MIN_Y)) {
             this.getBackgroundImagePosition().y += deltaY;
             for (Barrier barrier : barriers) {
                 barrier.addY(deltaY);

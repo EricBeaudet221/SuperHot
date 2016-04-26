@@ -19,8 +19,8 @@ public class Blue {
         this.x = x;
         this.y = y;
         
-        this.width = 10;
-        this.height = 10;
+        this.width = 50;
+        this.height = 50;
         
         this.speed = speed;
         this.direction = direction;
