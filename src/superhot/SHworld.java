@@ -34,8 +34,8 @@ public class SHworld extends Environment {
         barriers = new ArrayList<>();
         levelManager = new LevelManager();
 
-        Image sprite_1 = ResourceTools.loadImageFromResource("superhot/sprite_1.png");
-        blue = new Blue(50, 50, 4, Direction.LEFT);
+        
+        blue = new Blue(100, 100, 4, Direction.LEFT);
     }
 
     public void createBarrierRange(int startX, int startY, int endX, int endY, Color color, boolean breakable) {
