@@ -26,16 +26,19 @@ public class SHworld extends Environment {
     private ArrayList<Barrier> barriers;
     LevelManager levelManager;
     private Level currentLevel;
-    Blue blue;
+    Character blue;
+    MyImageManager mim;
 
     public SHworld() {
         this.setBackground(Color.BLACK);
 
+        mim = new MyImageManager();
+        
         barriers = new ArrayList<>();
         levelManager = new LevelManager();
-
         
-        blue = new Blue(100, 100, 4, Direction.LEFT);
+        blue = new Character(100, 100, 4, Direction.LEFT, mim);
+        
     }
 
     public void createBarrierRange(int startX, int startY, int endX, int endY, Color color, boolean breakable) {
