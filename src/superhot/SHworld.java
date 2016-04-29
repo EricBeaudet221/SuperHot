@@ -28,7 +28,7 @@ public class SHworld extends Environment {
     private Level currentLevel;
     Character blue;
     MyImageManager mim;
-    Enemy enemy;
+    private ArrayList<Enemy> enemy;
 
     public SHworld() {
         this.setBackground(Color.BLACK);
@@ -40,7 +40,7 @@ public class SHworld extends Environment {
         
         blue = new Character(100, 100, 4, Direction.LEFT, mim);
         
-//        enemy = new ArrayList<>();
+        enemy = new ArrayList<>();
         
     }
 
